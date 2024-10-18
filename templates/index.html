@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAPP</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body {% if exception_occurred %}style="background-image: url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"{% else %}style="background-image: url('{{ image_url }}');"{% endif %}>
+    <div class="container">
+        <h1>Weather App</h1>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Enter a city">
+        <button type="submit">search</button>
+    </form>
+    
+    <h2>{{temp}}</h2>
+    <h3>{{city}}</h3>
+    <p>{{description}}</p>
+    <p>
+        <img src="http://openweathermap.org/img/w/{{icon}}.png" width="100px">
+    </p>
+    <p>{{day}}</p>
+
+    {% if exception_occurred %}
+        <script>
+            window.onload = function(){
+                alert("City information is not available to our API")
+            }
+        </script>
+    {% endif %}
+
+    <!-- <script async src="https://cse.google.com/cse.js?cx=40ef55e75deb24ab2">
+    </script>
+    <div class="gcse-search"></div> -->
+</body>
+</html>
