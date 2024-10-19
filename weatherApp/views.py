@@ -23,7 +23,7 @@ def home(request):
     print(f'data = {data}') # For debugging purposes
     search_items = data.get('items')
 
-    image_url = 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image_url = 'https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     if search_items and len(search_items) > 1:
         image_url = search_items[1]['link']
 

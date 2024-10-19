@@ -2,11 +2,101 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --glass-effect-color: rgba(204, 219, 228, 0.4);
+    --shadow-color: rgba(24, 49, 73, 0.3);
+    --bg-color: rgba(24, 49, 73, 0.1);
+}
+
+html, body {
+    height: 100%;
+    width: 100vw;
 }
 
 body {
-    background-image: url("https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    height: 100vh;
+    background: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     max-width: 1920px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card {
+    background: var(--glass-effect-color);
+    backdrop-filter: blur(10px);
+    border-radius: 13px;
+    min-width: 450px;
+    min-height: 360px;
+    box-shadow: 0 0 10px 5px var(--shadow-color);
+    padding: 40px 20px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
+
+.texts {
+    text-transform: capitalize;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    padding-inline: .5rem;
+    margin-top: 1rem;
+}
+
+form input, form button {
+    height: 70%;
+    align-self: center;
+    border-radius: 13px;
+    outline: none;
+    border: 1px solid var(--shadow-color);
+    background: var(--bg-color);
+    font-size: 1rem;
+}
+
+form input {
+    width: 70%;
+    padding-left: 1rem;
+}
+
+form button {
+    width: 20%;
+    font-weight: 600;
+}
+
+form button:hover {
+    cursor: pointer;
+}
+
+section#infos {
+    background: var(--bg-color);
+    padding: 1rem 0 1.4rem;
+    backdrop-filter: blur(13px);
+    border-radius: 13px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.6rem;
+}
+
+#city-temp, #temp-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#temp-info p.texts {
+    margin-top: -1rem;
 }
