@@ -20,9 +20,10 @@ def home(request):
     city_url = f'https://www.googleapis.com/customsearch/v1?key={settings.SEARCH_ENGINE_API_KEY}&cx={settings.SEARCH_ENGINE_ID}&q={query}&start={start}&searchType={searchType}&imgSize=xlarge'
 
     data = requests.get(city_url).json()
+    print(f'data = {data}') # For debugging purposes
     search_items = data.get('items')
 
-    image_url = None
+    image_url = 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     if search_items and len(search_items) > 1:
         image_url = search_items[1]['link']
 
@@ -57,6 +58,6 @@ def home(request):
             'temp': 25,
             'day': day,
             'city': 'valença',
-            'exception_occurred': True,
+            'exception_occurred': exception_occurred,
             'image_url': None,
         })
